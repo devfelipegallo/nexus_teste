@@ -1,0 +1,133 @@
+/* Nexus — components/controls; extraído do painel, preservando a ordem das regras. */
+
+#global-search,
+#movie-search,
+#music-search {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.045);
+  color: #f7f5fa;
+  transition: 0.2s;
+}
+
+#global-search::placeholder,
+#movie-search::placeholder,
+#music-search::placeholder {
+  color: #706a79;
+}
+
+#global-search:focus,
+#movie-search:focus,
+#music-search:focus {
+  border-color: var(--user-purple);
+  background: rgba(139, 92, 246, 0.07);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+  outline: none;
+}
+
+.user-eyebrow {
+  margin: 0 0 7px;
+  color: #a78bfa;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.user-view-subtitle {
+  margin: 7px 0 0;
+  color: var(--user-muted);
+  font-size: 13px;
+}
+
+#movies-view [aria-label="Categorias demonstrativas"] button,
+.taste-chip {
+  flex: none;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: #aaa4b2;
+}
+
+#movies-view [aria-label="Categorias demonstrativas"] button:first-child,
+.taste-chip[aria-pressed="true"] {
+  border-color: rgba(167, 139, 250, 0.38);
+  background: rgba(124, 58, 237, 0.22);
+  color: #e9ddff;
+}
+
+#movies-view [aria-label="Categorias demonstrativas"] button:hover,
+.taste-chip:hover {
+  border-color: rgba(167, 139, 250, 0.32);
+  color: white;
+}
+
+.taste-chip {
+  padding: 7px 13px;
+}
+
+#search-results {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.search-result {
+  border: 1px solid var(--user-border);
+  background: rgba(255, 255, 255, 0.035);
+  transition: 0.18s;
+}
+
+.search-result:hover {
+  border-color: rgba(167, 139, 250, 0.33);
+  background: rgba(124, 58, 237, 0.12);
+  transform: translateY(-2px);
+}
+
+.catalog-status {
+  min-height: 18px;
+  margin: 5px 2px 0;
+  color: #787180;
+  font-size: 12px;
+}
+
+.icon-action {
+  display: grid;
+  width: 35px;
+  height: 35px;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #8d8796;
+}
+
+.icon-action:hover,
+.icon-action[data-active="true"] {
+  background: rgba(124, 58, 237, 0.18);
+  color: #c4b5fd;
+}
+
+.nexus-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #7c3aed rgba(255, 255, 255, 0.06);
+  scrollbar-gutter: stable;
+}
+
+.nexus-scroll::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+.nexus-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 999px;
+}
+
+.nexus-scroll::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: #6d28d9;
+  background-clip: padding-box;
+}
+
+.nexus-scroll::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+  background-clip: padding-box;
+}

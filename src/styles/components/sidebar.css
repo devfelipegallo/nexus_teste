@@ -1,0 +1,158 @@
+/* Nexus — components/sidebar; extraído do painel, preservando a ordem das regras. */
+
+.user-sidebar {
+  position: sticky;
+  top: 16px;
+  display: flex;
+  max-height: calc(100dvh - 32px);
+  min-height: 560px;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding: 18px;
+}
+
+.user-sidebar > .relative {
+  position: relative;
+}
+
+.user-sidebar > .relative i {
+  color: #777180;
+}
+
+.user-nav-label {
+  margin: 10px 10px 0;
+  color: #6f6978;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.user-sidebar nav {
+  display: grid;
+  gap: 5px;
+}
+
+.explore-link,
+.library-button,
+.user-sidebar-logout {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 11px;
+  border: 0;
+  border-radius: 11px;
+  background: transparent;
+  color: #aaa5b1;
+  text-align: left;
+  text-decoration: none;
+  transition: 0.18s;
+}
+
+.explore-link {
+  min-height: 44px;
+  padding: 10px 12px;
+}
+
+.explore-link i,
+.library-button i {
+  width: 20px;
+  color: #797381;
+  font-size: 18px;
+  text-align: center;
+}
+
+.explore-link:hover,
+.explore-link[aria-current="page"],
+.library-button:hover,
+.library-button[aria-pressed="true"] {
+  background: rgba(124, 58, 237, 0.16);
+  color: #f4f0fb;
+}
+
+.explore-link[aria-current="page"] i,
+.library-button[aria-pressed="true"] i {
+  color: #b99cff;
+}
+
+#library-title {
+  color: #716b7b;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+}
+
+#new-playlist {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--user-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: #a9a3b2;
+}
+
+#new-playlist:hover {
+  border-color: rgba(167, 139, 250, 0.35);
+  color: #ddd6fe;
+}
+
+.library-button {
+  padding: 9px 11px;
+}
+
+#playlist-list {
+  padding-right: 3px;
+}
+
+[data-open-playlist] {
+  transition: background 0.18s;
+}
+
+[data-open-playlist]:hover {
+  background: rgba(124, 58, 237, 0.12);
+}
+
+.user-sidebar-logout {
+  margin-top: auto;
+  padding: 11px 12px;
+  color: #777180;
+}
+
+.user-sidebar-logout:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #fb7185;
+}
+
+@media (max-width: 720px) {
+  .user-sidebar {
+    position: static;
+    max-height: none;
+    min-height: 0;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 720px) {
+  .user-sidebar > nav:first-of-type {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .explore-link {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .explore-link span {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .user-sidebar-logout {
+    display: none;
+  }
+}

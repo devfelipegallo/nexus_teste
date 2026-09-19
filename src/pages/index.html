@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>NEXUS | Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../styles/index.css" />
+    <script src="/main.js" defer></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+  </head>
+  <body class="m-0">
+    <main id="app">
+      <!-- Login -->
+      <section id="login-screen" class="grid min-h-dvh justify-center content-center p-6">
+        <form id="login-form" class="w-full max-w-sm p-8 sm:p-12 rounded-2xl">
+          <h1 id="nexus" class="mb-8 text-center text-[62px] pt-3 text-[#530099] animate-pulse">
+            NEXUS
+          </h1>
+          <label for="login-user" class="ml-2">Usuário:</label>
+          <input
+            id="login-user"
+            name="username"
+            placeholder="Usuário"
+            class="mb-6 mt-1 w-full rounded-xl border p-3"
+          />
+          <label for="login-password" class="ml-2">Senha:</label>
+          <input
+            id="login-password"
+            name="password"
+            type="password"
+            placeholder="Senha"
+            autocomplete="current-password"
+            class="mb-3 mt-1 w-full rounded-xl border p-3"
+          />
+          <label class="flex items-center gap-2"
+            ><input id="show-password" type="checkbox" />Mostrar senha</label
+          >
+          <p id="login-error" class="my-4 min-h-5 text-[#ffffff]" role="alert"></p>
+          <button id="login-submit" type="submit" class="w-full h-14 rounded-xl p-3 mb-10">
+            Entrar
+          </button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+/* Nexus — components/account; extraído do painel, preservando a ordem das regras. */
+
+.user-profile-dialog {
+  width: min(920px, calc(100% - 28px));
+  max-height: min(820px, 90dvh);
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+.account-settings-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 22px 24px;
+}
+
+.account-settings-heading button {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.account-settings-grid {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  min-height: 560px;
+}
+
+.account-settings-grid > nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 12px;
+}
+
+.account-settings-grid > nav a {
+  border-radius: 9px;
+  padding: 10px 12px;
+  color: #bbb4c3;
+}
+
+.account-settings-grid > nav a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+}
+
+.account-settings-content {
+  max-height: 70dvh;
+  overflow: auto;
+  padding: 4px 26px 30px;
+  scroll-behavior: smooth;
+}
+
+.account-settings-content section {
+  display: grid;
+  gap: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 0;
+}
+
+.account-settings-content form {
+  display: grid;
+  gap: 12px;
+}
+
+.account-settings-content label {
+  display: grid;
+  gap: 6px;
+  color: #c7c1cc;
+  font-size: 13px;
+}
+
+.account-settings-content input,
+.account-settings-content textarea,
+.account-settings-content select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: #0d0a11;
+  padding: 10px 12px;
+  color: white;
+}
+
+.account-settings-content textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+.account-settings-content button {
+  justify-self: start;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: #6f35d3;
+  padding: 10px 14px;
+}
+
+.avatar-editor {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar-editor img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-stats {
+  border-radius: 12px;
+  background: rgba(138, 73, 245, 0.1);
+  padding: 13px;
+  color: #cdb4f7;
+}
+
+@media (max-width: 700px) {
+  .account-settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .account-settings-grid > nav {
+    flex-direction: row;
+    overflow-x: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (max-width: 700px) {
+  .account-settings-content {
+    padding: 0 18px 24px;
+  }
+}

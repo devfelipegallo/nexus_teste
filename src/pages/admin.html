@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>NEXUS | Administração</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="../styles/admin.css" />
+    <script src="/main.js" defer></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+  </head>
+  <body class="m-0" data-page="admin">
+    <main id="app" class="admin-shell">
+      <section id="admin-screen" aria-labelledby="admin-title">
+        <header class="admin-topbar">
+          <div class="admin-brand">
+            <span class="admin-logo" aria-hidden="true">N</span>
+            <div>
+              <p>NEXUS</p>
+              <span>Central de administração</span>
+            </div>
+          </div>
+          <div class="admin-account">
+            <div class="admin-avatar" aria-hidden="true">A</div>
+            <div class="admin-account-copy">
+              <strong id="admin-name">Administrador</strong><span>Acesso total</span>
+            </div>
+            <button class="admin-logout" type="button" data-logout aria-label="Sair" title="Sair">
+              <i class="ph ph-sign-out"></i>
+            </button>
+          </div>
+        </header>
+
+        <div class="admin-heading">
+          <div>
+            <p class="admin-eyebrow">VISÃO GERAL</p>
+            <h1 id="admin-title">Gerenciamento de usuários</h1>
+            <p>Gerenciamento de usuários e planos.</p>
+          </div>
+          <button id="add-user" type="button" class="admin-primary">
+            <i class="ph ph-plus"></i> Adicionar usuário
+          </button>
+        </div>
+
+        <section class="admin-stats" aria-label="Resumo de usuários">
+          <article class="admin-stat">
+            <span class="admin-stat-icon purple"><i class="ph ph-users-three"></i></span>
+            <div>
+              <p>Total de usuários</p>
+              <strong id="stat-total">0</strong>
+              <span>contas cadastradas</span>
+            </div>
+          </article>
+          <article class="admin-stat">
+            <span class="admin-stat-icon green"><i class="ph ph-check-circle"></i></span>
+            <div>
+              <p>Usuários ativos</p>
+              <strong id="stat-active">0</strong><span id="stat-active-rate">0% do total</span>
+            </div>
+          </article>
+          <article class="admin-stat">
+            <span class="admin-stat-icon blue"><i class="ph ph-crown"></i></span>
+            <div>
+              <p>Plano Premium</p>
+              <strong id="stat-premium">0</strong><span>assinaturas premium</span>
+            </div>
+          </article>
+          <article class="admin-stat">
+            <span class="admin-stat-icon amber"><i class="ph ph-user-minus"></i></span>
+            <div>
+              <p>Contas inativas</p>
+              <strong id="stat-inactive">0</strong><span>acessos suspensos</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="admin-panel" aria-labelledby="users-title">
+          <div class="admin-panel-head">
+            <div>
+              <h2 id="users-title">Usuários</h2>
+              <p id="user-result-count">0 resultados</p>
+            </div>
+            <span class="admin-updated"
+              ><i class="ph ph-clock"></i> Atualizado <time id="admin-updated">agora</time></span
+            >
+          </div>
+          <div class="admin-toolbar">
+            <label class="admin-search"
+              ><i class="ph ph-magnifying-glass"></i><span class="sr-only">Pesquisar usuários</span
+              ><input id="admin-user-search" type="search" placeholder="Pesquisar por usuário..."/>
+            </label>
+            <label class="table-filter"
+              ><span class="sr-only">Filtrar por plano</span>
+              <select id="admin-plan-filter">
+                <option value="">Todos os planos</option>
+                <option value="Basic">Basic</option>
+                <option value="Premium">Premium</option>
+              </select>
+            </label>
+            <label class="table-filter">
+              <span class="sr-only">Filtrar por status</span>
+              <select id="admin-status-filter">
+                <option value="">Todos os status</option>
+                <option value="Ativo">Ativos</option>
+                <option value="Inativo">Inativos</option>
+              </select></label
+            >
+          </div>
+          <div class="admin-table-scroll nexus-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Usuário</th>
+                  <th>Senha</th>
+                  <th>Plano</th>
+                  <th>Status</th>
+                  <th class="text-right">Ações</th>
+                </tr>
+              </thead>
+              <tbody id="users-body"></tbody>
+            </table>
+          </div>
+          <div id="empty-users" hidden class="admin-empty">
+            <i class="ph ph-user-list"></i><strong>Nenhum usuário encontrado</strong
+            ><span>Tente alterar os filtros ou adicione uma nova conta.</span>
+          </div>
+        </section>
+        <section class="admin-panel" aria-labelledby="suggestions-title">
+          <div class="admin-panel-head"><div><h2 id="suggestions-title">Sugestões e problemas</h2><p>Mensagens enviadas pelos usuários</p></div><button id="refresh-suggestions" type="button" class="admin-primary"><i class="ph ph-arrows-clockwise"></i> Atualizar</button></div>
+          <div id="admin-suggestions" class="admin-suggestions"><p>Carregando mensagens…</p></div>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="user-dialog" aria-labelledby="dialog-title" class="admin-dialog">
+      <form id="user-form">
+        <div class="admin-dialog-head">
+          <div>
+            <p class="admin-eyebrow">CONTA NEXUS</p>
+            <h2 id="dialog-title">Criar novo usuário</h2>
+          </div>
+          <button id="cancel-user" type="button" aria-label="Fechar"><i class="ph ph-x" aria-hidden="true"></i></button>
+        </div>
+        <label
+          >Usuário<input id="edit-user" name="username" placeholder="Nome de usuário" required
+        /></label>
+        <label>Senha<input id="edit-password" name="password" type="password" required /></label>
+        <div class="admin-form-grid">
+          <label
+            >Plano<select id="edit-plan" name="plan">
+              <option>Basic</option>
+              <option>Premium</option>
+            </select></label
+          ><label
+            >Status<select id="edit-status" name="status">
+              <option>Ativo</option>
+              <option>Inativo</option>
+            </select></label
+          >
+        </div>
+        <p id="user-error" role="alert"></p>
+        <button type="submit" class="admin-primary">Salvar usuário</button>
+      </form>
+    </dialog>
+
+    <template id="user-row-template"
+      ><tr>
+        <td>
+          <div class="admin-user-cell">
+            <span data-field="avatar" class="admin-user-avatar"></span>
+            <div><strong data-field="username"></strong><small>Conta NEXUS</small></div>
+          </div>
+        </td>
+        <td><span data-field="password" class="admin-password"></span></td>
+        <td><span data-field="plan" class="admin-badge"></span></td>
+        <td><span data-field="status" class="admin-status"></span></td>
+        <td>
+          <div class="admin-actions">
+            <button type="button" data-action="edit">
+              <i class="ph ph-pencil-simple"></i><span>Editar</span></button
+            ><button type="button" data-action="delete">
+              <i class="ph ph-trash"></i><span>Remover</span>
+            </button>
+          </div>
+        </td>
+      </tr></template
+    >
+    <template id="toast-template"><div class="rounded-xl px-6 py-4 shadow-xl"></div></template>
+    <div
+      id="notifications"
+      role="status"
+      aria-live="polite"
+      class="fixed bottom-8 left-1/2 z-50 grid w-max max-w-[90vw] -translate-x-1/2 gap-3"
+    ></div>
+  </body>
+</html>

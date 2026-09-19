@@ -1,0 +1,13 @@
+services:
+  komga:
+    image: gotson/komga:latest
+    container_name: nexus-komga
+    restart: unless-stopped
+    ports:
+      - "25600:25600"
+    environment:
+      TZ: America/Sao_Paulo
+      JAVA_TOOL_OPTIONS: -Xmx1g
+    volumes:
+      - ./komga/config:/config
+      - ./komga/library:/data

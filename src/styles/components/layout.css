@@ -1,0 +1,101 @@
+/* Nexus — components/layout; extraído do painel, preservando a ordem das regras. */
+
+.user-shell {
+  width: min(1600px, calc(100% - 40px));
+  margin: auto;
+  padding: 24px 0 32px;
+}
+
+.user-layout {
+  display: grid;
+  grid-template-columns: 276px minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+  min-height: calc(100dvh - 116px);
+}
+
+body[data-section="movies"] .user-sidebar,
+body[data-section="mangas"] .user-sidebar {
+  display: none;
+}
+
+body[data-section="movies"] .user-layout,
+body[data-section="mangas"] .user-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.user-sidebar,
+.user-content {
+  border: 1px solid var(--user-border);
+  border-radius: 20px;
+  background: var(--user-panel);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(18px);
+}
+
+.user-content {
+  min-width: 0;
+  min-height: calc(100dvh - 116px);
+  overflow: visible;
+}
+
+.user-content [data-view] {
+  min-height: calc(100dvh - 116px);
+  padding: 32px;
+}
+
+.user-content h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.15;
+}
+
+@media (max-width: 980px) {
+  .user-shell {
+    width: min(100% - 24px, 1600px);
+    padding-top: 12px;
+  }
+}
+
+@media (max-width: 980px) {
+  .user-layout {
+    grid-template-columns: 230px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .user-layout {
+    display: block;
+    height: auto;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .user-content {
+    min-height: 70dvh;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 720px) {
+  .user-content [data-view] {
+    height: auto;
+    min-height: 70dvh;
+    overflow: visible;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-shell {
+    width: min(100% - 16px, 1600px);
+  }
+}
+
+@media (max-width: 480px) {
+  .user-content,
+    .user-sidebar {
+    border-radius: 16px;
+  }
+}

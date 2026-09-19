@@ -1,0 +1,40 @@
+/* Nexus — components/dialogs; extraído do painel, preservando a ordem das regras. */
+
+.user-dialog {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+  background: #0e0c14 !important;
+  color: #f8f7fb;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.65);
+}
+
+.user-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(5px);
+}
+
+.user-dialog input {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #17141e;
+  color: white;
+}
+
+.user-dialog button {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.user-dialog button[type="submit"] {
+  border: 0;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+}
+
+#toast-template + #notifications > div {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #17141e;
+  color: white;
+}
+
+#notifications > div[data-error="true"] {
+  border-color: rgba(244, 63, 94, 0.35);
+}

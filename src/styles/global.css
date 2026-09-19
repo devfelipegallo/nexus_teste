@@ -1,0 +1,66 @@
+/* Nexus — global; extraído do painel, preservando a ordem das regras. */
+
+[hidden] {
+  display: none !important;
+}
+
+:root {
+  color-scheme: dark;
+  --user-purple: #8b5cf6;
+  --user-purple-light: #c4b5fd;
+  --user-panel: rgba(10, 9, 15, 0.86);
+  --user-border: rgba(255, 255, 255, 0.08);
+  --user-muted: #918b9c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body[data-page="user"] {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: #f8f7fb;
+  font-family:
+    Urbanist,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: #08070c url("../assets/images/fundo.png") center / cover fixed no-repeat;
+}
+
+body[data-page="user"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 78% 13%, rgba(124, 58, 237, 0.2), transparent 28%),
+    linear-gradient(180deg, rgba(3, 3, 7, 0.3), rgba(3, 3, 7, 0.66));
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+input[type="range"] {
+  accent-color: var(--user-purple);
+}
