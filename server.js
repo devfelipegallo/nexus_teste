@@ -111,9 +111,8 @@ if (require.main === module) {
         : `Não foi possível iniciar: ${error.message}`);
       process.exitCode = 1;
     });
-    server.listen(port, "127.0.0.1", () => {
-      console.log(`NEXUS disponível em http://localhost:${port}`);
-      console.log("Mantenha este terminal aberto. Para encerrar, pressione Ctrl+C.");
+    server.listen(port, () => {
+      console.log(`NEXUS disponível em ${port}`);
     });
   }
 }
